@@ -6,7 +6,7 @@ import Footer from '../../components/AllComponents/Footer/Footer'
 const Home = () => {
   return (
     <div>
-      home
+      Naya
       <NavBar/>
       <Footer/>
     </div>
