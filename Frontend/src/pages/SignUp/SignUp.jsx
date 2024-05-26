@@ -4,7 +4,6 @@ import Login from '../Login/Login'
 const SignUp = () => {
   return (
     <div>
-      ssssssssssssssssssssssssssssssss
       <Login/>
     </div>
   )
