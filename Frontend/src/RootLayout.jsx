@@ -5,13 +5,14 @@ import { Outlet } from 'react-router-dom'
 
 function RootLayout() {
   return (
-    <>
+    <div style={{height:'100vh',display:'flex',flexDirection:'column',justifyContent:'space-between'}}>
+    
     <NavBar/>
     <main>
       <Outlet/>
     </main>
     <Footer/>
-    </>
+    </div>
   )
 }
 
