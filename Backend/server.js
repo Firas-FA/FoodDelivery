@@ -24,7 +24,7 @@ const dbName = "FoodDelivery";
 
 //! Connect to MongoDB and Start The Server
 mongoose
-  .connect(`mongodb://localhost/${dbName}`)
+  .connect(`mongodb://127.0.0.1/${dbName}`)
   .then(() => {
     console.log("\nMongoDB connected...");
 
