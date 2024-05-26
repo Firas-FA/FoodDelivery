@@ -6,7 +6,9 @@ const cors = require("cors");
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 //* Importing Packages *\\
+
 const User = require("./Models/UserModel");
+const FoodItem = require("./Models/FoodItemModel");
 
 //? Creating Express application
 const app = express();
@@ -43,6 +45,33 @@ mongoose
 
 //? User Registr Route
 app.use("", userRegisterRoute);
+
+//? User Login Route
 app.use("", userLoginRoute);
 
 //! Using Routes !\\
+
+//? Add New FoodItem Route
+app.post("/foodItems", async (req, res) => {
+  try {
+    async function validateFields(req) {
+      const { foodItemName, description, price, oldPrice, category, imageUrl } =
+        req.body;
+      if (
+        !foodItemName ||
+        !description ||
+        !price ||
+        !oldPrice ||
+        !category ||
+        !imageUrl
+      ) {
+        throw new Error("REQUIRED FIELD");
+      }
+    }
+    const foodItem = new FoodItem(req.body);
+    await foodItem.save();
+    res.status(201).json({ foodItem });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
