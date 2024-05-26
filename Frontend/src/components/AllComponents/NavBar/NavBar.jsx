@@ -1,14 +1,15 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+import './NavBarStyle.css'
 
 
 const NavBar = () => {
   return (
-    <div>
-        <Link to={"/"} > Home</Link>
-        <Link to={"/menu"}>menu</Link>
-        <Link to={"/basket"}>basket</Link>
-        <Link to={"/login"}>login</Link>
+    <div className='d-flex bg-dark navbar justify-content-center gap-4'>
+        <NavLink to={"/"} > Home</NavLink>
+        <NavLink to={"/menu"}>menu</NavLink>
+        <NavLink to={"/basket"}>basket</NavLink>
+        <NavLink to={"/login"}>login</NavLink>
     </div>
   )
 }
