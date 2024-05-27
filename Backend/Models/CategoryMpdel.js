@@ -25,10 +25,10 @@ const categorySchema = new mongoose.Schema(
     },
     imageUrl: {
       type: String,
-      match: [
-        /^https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)$/,
-        "Image URL must be a valid URL and end with an image extension",
-      ],
+      // match: [
+      //   /^https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)$/,
+      //   "Image URL must be a valid URL and end with an image extension",
+      // ],
     },
   },
   { timestamps: true }
