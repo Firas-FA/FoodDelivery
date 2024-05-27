@@ -4,6 +4,7 @@ const INVALID_EMAIL = "✉️ Error: Invalid email address.";
 const DUPLICATE_EMAIL = "🔒 Error: Email already in use. Please log in.";
 const ACCOUNT_CREATION_FAILURE =
   "❌ Error: Account creation failed. Try again.";
+const PASSWORD_LEBGTH = "Password must be at least 6 characters long";
 
 module.exports = {
   SUCCESSFUL_REGISTRATION_MESSAGE,
@@ -11,4 +12,5 @@ module.exports = {
   INVALID_EMAIL,
   DUPLICATE_EMAIL,
   ACCOUNT_CREATION_FAILURE,
+  PASSWORD_LEBGTH,
 };

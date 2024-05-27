@@ -119,7 +119,7 @@ app.post("/categories", async (req, res) => {
   }
 
   try {
-    // Create new category
+    // Create new categor
     const newCategory = new Category({ categoryName, description, imageUrl });
     await newCategory.save();
     res.status(201).json(newCategory);
