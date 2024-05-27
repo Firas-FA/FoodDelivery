@@ -50,46 +50,6 @@ app.use("", userRegisterRoute);
 app.use("", userLoginRoute);
 
 //! Using Routes !\\
-async function validateFields(req) {
-  const {
-    foodItemName,
-    description,
-    price,
-    oldPrice,
-    category: categoryName,
-    imageUrl,
-  } = req.body;
-
-  if (
-    !foodItemName &&
-    !description &&
-    !price &&
-    !oldPrice &&
-    !categoryName &&
-    !imageUrl
-  ) {
-    throw new Error("All fields are required ");
-  } else {
-    if (!foodItemName) {
-      throw new Error("The 'foodItemName' field is required.");
-    }
-    if (!description) {
-      throw new Error("The 'description' field is required.");
-    }
-    if (!price) {
-      throw new Error("The 'price' field is required.");
-    }
-    if (!oldPrice) {
-      throw new Error("The 'oldPrice' field is required.");
-    }
-    if (!categoryName) {
-      throw new Error("The 'category' field is required.");
-    }
-    if (!imageUrl) {
-      throw new Error("The 'imageUrl' field is required.");
-    }
-  }
-}
 
 // //? Add New FoodItem Route
 // app.post("/foodItems", async (req, res) => {
@@ -107,29 +67,63 @@ async function validateFields(req) {
 //   }
 // });
 
-// Route to create a new category
-app.post("/categories", async (req, res) => {
-  const { categoryName, description, imageUrl } = req.body;
-
-  // Validate request body
+const validateRequestBody = (categoryName, description, imageUrl, language) => {
   if (!categoryName || !description || !imageUrl) {
-    return res.status(400).json({
-      error: "All fields are required: categoryName, description, imageUrl",
-    });
+    return "All fields are required: categoryName, description, imageUrl";
+  }
+  return null;
+};
+
+// const validateImageUrl = (imageUrl) => {
+//   const urlPattern = /^https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)$/;
+//   if (!urlPattern.test(imageUrl)) {
+//     return "Image URL must be a valid URL and end with an image extension";
+//   }
+//   return null;
+// };
+
+const checkCategoryExists = async (categoryName) => {
+  const existingCategory = await Category.findOne({ categoryName });
+  if (existingCategory) {
+    return "Category name must be unique";
+  }
+  return null;
+};
+
+app.post("/categories", async (req, res) => {
+  const { categoryName, description, imageUrl, language } = req.body;
+
+  //؟ Validate request body
+  const bodyError = validateRequestBody(categoryName, description, imageUrl);
+  if (bodyError) {
+    return res.status(400).json({ error: bodyError });
   }
 
+  // // Validate image URL format
+  // const imageError = validateImageUrl(imageUrl);
+  // if (imageError) {
+  //   return res.status(400).json({ error: imageError });
+  // }
+
   try {
-    // Create new categor
-    const newCategory = new Category({ categoryName, description, imageUrl });
+    // Check if category already exists
+    const categoryError = await checkCategoryExists(categoryName);
+    if (categoryError) {
+      return res.status(400).json({ error: categoryError });
+    }
+
+    // Create new category
+    const newCategory = new Category({
+      categoryName,
+      description,
+      imageUrl,
+    });
     await newCategory.save();
     res.status(201).json(newCategory);
   } catch (error) {
     // Handle validation errors and other errors
     if (error.name === "ValidationError") {
       res.status(400).json({ error: error.message });
-    } else if (error.code === 11000) {
-      // Handle duplicate key error
-      res.status(400).json({ error: "Category name must be unique" });
     } else {
       res.status(500).json({ error: "Internal Server Error" });
     }
