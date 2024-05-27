@@ -2,8 +2,6 @@ import { NavLink } from 'react-router-dom'
 
 
 const SignUp = () => {
- 
-
   return (
     <>
       <div class='Container p-5'>
