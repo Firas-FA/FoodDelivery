@@ -33,7 +33,7 @@ const foodItemSchema = new mongoose.Schema(
         message: "Old price must be greater than or equal to the current price",
       },
     },
-    category: {
+    categoryName: {
       type: String,
       required: [true, "Category is required"],
       trim: true,
