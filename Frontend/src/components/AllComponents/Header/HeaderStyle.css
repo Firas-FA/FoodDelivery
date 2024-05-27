@@ -82,15 +82,12 @@
     bottom: -8%;
   }
   .header{
-/*  
-    background: rgb(1,1,31);
-    background: linear-gradient(180deg, rgba(1,1,31,0.908000700280112) 52%, rgba(137,53,67,1) 82%, rgba(246,95,95,1) 100%); */
-    /* background: rgb(0,0,0);
-background: linear-gradient(180deg, rgba(0,0,0,0.908000700280112) 52%, rgba(137,53,67,1) 82%, rgba(246,95,95,1) 100%); */
-/* background: rgb(0,0,0);
-background: linear-gradient(180deg, rgba(0,0,0,1) 52%, rgba(137,53,67,1) 82%, rgba(246,95,95,1) 100%); */
-/* background: rgb(0,0,0);
-background: linear-gradient(180deg, rgba(0,0,0,1) 60%, rgba(5,1,2,1) 69%, rgba(246,95,95,1) 99%); */
-background: rgb(0,0,0);
-background: linear-gradient(180deg, rgba(0,0,0,1) 58%, rgba(59,10,22,1) 80%, rgba(228,78,78,1) 100%);
+ 
+/* background: linear-gradient(180deg, rgba(1,1,31,1) 44%, rgba(246,95,95,1) 100%);  */
+/* background: rgb(1,1,31);
+background: linear-gradient(180deg, rgba(1,1,31,1) 55%, rgba(246,95,95,1) 100%); */
+/* background: rgb(1,1,31);
+background: linear-gradient(180deg, rgba(1,1,31,1) 73%, rgba(246,95,95,1) 100%)} */
+background: rgb(1,1,31);
+background: linear-gradient(180deg, rgba(1,1,31,0.908000700280112) 52%, rgba(137,53,67,1) 82%, rgba(246,95,95,1) 100%);
   }
