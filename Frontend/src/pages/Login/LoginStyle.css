@@ -1,4 +1,8 @@
-.Container{
+
+*{
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}.Container{
     background-color: #030104;
 }
 .container-form{
