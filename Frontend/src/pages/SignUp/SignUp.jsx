@@ -6,7 +6,6 @@ const SignUp = () => {
 
   return (
     <>
-
       <div class='Container p-5'>
         <div class='row mx-0 pt-5 pb-5'>
           <div class=" col-lg-6 pt-5">
