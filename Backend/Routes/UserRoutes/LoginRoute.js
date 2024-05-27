@@ -30,7 +30,7 @@ const {
 } = require("../../Controllers/UserControllers/userLoginController");
 
 //? Login Route
-router.get("/login", async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
     checkForMissingFields(req);
 

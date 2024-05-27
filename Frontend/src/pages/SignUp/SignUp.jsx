@@ -128,7 +128,7 @@ const SignUp = () => {
                 )}
                 <div className="btn">
                   <NavLink to={"/login"}>
-                    <button className="button1">
+                    <button  className="button1">
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Log
                       <span style={{ color: "#FDCE77" }}>in</span>
                       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
