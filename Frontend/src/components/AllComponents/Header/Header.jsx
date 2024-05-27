@@ -7,10 +7,10 @@ import img3 from '../../../assets/Ellipse 447.png'
 function Header() {
   return (
     <>
-      <div className="header" style={{minHeight:'90vh'}}>
+      <div className="header" style={{minHeight:'98vh'}}>
           <Container >
-        <Row className="mx-0 " style={{padding:"80px 0"}}>
-            <Col md={6} className="">
+        <Row className="mx-0 " style={{padding:"130px 0"}}>
+            <Col md={6} className="pt-5">
               <div className="d-flex align-items-center h-100">
                 <div>
                 <h3 className="text-light">
@@ -39,7 +39,7 @@ function Header() {
                 </div>
               </div>
             </Col>
-            <Col md="6" className="h-100">
+            <Col md="6" className="h-100 pt-5">
               <div className="d-flex align-items-center h-100">
               <div className="hero-img ">
                 <img src={img3} className=" img1" alt="" />
