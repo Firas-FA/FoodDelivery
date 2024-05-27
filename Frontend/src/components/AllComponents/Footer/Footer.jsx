@@ -1,7 +1,13 @@
 import React from "react";
+import './FooterStyle.css'
 
 const Footer = () => {
-  return <div className="bg-dark text-light">Footer</div>;
+  return (
+    <>
+    <div className="footer text-light">Footer</div>
+    </>
+  );
+
 };
 
 export default Footer;
