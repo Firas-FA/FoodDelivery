@@ -4,11 +4,8 @@ import './NavBarStyle.css'
 import * as bootstrap from 'bootstrap';
 import { GiKnifeFork } from "react-icons/gi";
 
-
 const NavBar = () => {
 window.addEventListener('DOMContentLoaded', event => {
-
-
   var navbarShrink = function () {
       const navbarCollapsible = document.body.querySelector('#mainNav');
       if (!navbarCollapsible) {
@@ -62,8 +59,9 @@ window.addEventListener('DOMContentLoaded', event => {
     <>
       <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
-        <GiKnifeFork class="mb-2" style={{ color: "#FDCE77" , fontSize:"28px"}} />
-          <p class="navbar-brand mb-2">H<span style={{color:"#F54748"}}>U</span>T</p>
+         <div class="d-flex"><GiKnifeFork class="mt-1" style={{ color: "#FDCE77" , fontSize:"28px"}} />
+         <p class="navbar-brand">H<span style={{color:"#F54748"}}>U</span>T</p>
+       </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             Menu
             <i class="fas fa-bars ms-1"></i>
