@@ -82,6 +82,17 @@
     bottom: -8%;
   }
   .header{
-    background: rgb(0,0,0);
-    background: linear-gradient(180deg, rgba(0,0,0,1) 58%, rgba(59,10,22,1) 80%, rgba(228,78,78,1) 100%);
+    /* background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 58%, rgba(59,10,22,1) 80%, rgba(228,78,78,1) 100%); */
+    /* background: rgb(0,0,0);
+background: linear-gradient(180deg, rgba(0,0,0,1) 58%, rgba(9,2,3,1) 64%, rgba(162,51,51,1) 100%); */
+/* background: rgb(0,0,0);
+background: linear-gradient(180deg, rgba(0,0,0,1) 58%, rgba(9,2,3,1) 69%, rgba(148,48,48,1) 100%); */
+background: rgb(0, 0, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 58%,
+    rgba(9, 2, 3, 1)75%,
+    rgba(162, 51, 51, 1) 175%
+  );
   }

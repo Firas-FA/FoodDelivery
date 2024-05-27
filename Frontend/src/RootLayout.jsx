@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom'
 
 function RootLayout() {
   return (
-    <div style={{height:'',display:'flex',flexDirection:'column',justifyContent:'space-between'}}>
+    <div style={{display:'flex',flexDirection:'column',justifyContent:'space-between',minHeight:'100vh'}}>
     
     <NavBar/>
     <main>

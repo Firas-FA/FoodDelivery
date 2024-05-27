@@ -2,7 +2,7 @@ import React from 'react'
 
 const Basket = () => {
   return (
-    <div>
+    <div style={{height:'500px'}}> 
       Basket
     </div>
   )
