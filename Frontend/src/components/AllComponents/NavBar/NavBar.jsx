@@ -6,7 +6,6 @@ import { GiKnifeFork } from "react-icons/gi";
 
 
 const NavBar = () => {
-  
 window.addEventListener('DOMContentLoaded', event => {
 
 
