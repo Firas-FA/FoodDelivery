@@ -16,6 +16,7 @@ const app = express();
 //* Importing  Routes
 const userRegisterRoute = require("./Routes/UserRoutes/RegesterRoute");
 const userLoginRoute = require("./Routes/UserRoutes/LoginRoute");
+const createCategoryRoute = require("./Routes/Categories/CreateCategoryRoute");
 //* Importing  Routes *\\
 
 //? Middlewares
@@ -49,6 +50,8 @@ app.use("", userRegisterRoute);
 //? User Login Route
 app.use("", userLoginRoute);
 
+//? Create Category Route
+app.use("", createCategoryRoute);
 //! Using Routes !\\
 
 // //? Add New FoodItem Route
@@ -66,66 +69,3 @@ app.use("", userLoginRoute);
 //     res.status(400).json({ error: error.message });
 //   }
 // });
-
-const validateRequestBody = (categoryName, description, imageUrl, language) => {
-  if (!categoryName || !description || !imageUrl) {
-    return "All fields are required: categoryName, description, imageUrl";
-  }
-  return null;
-};
-
-// const validateImageUrl = (imageUrl) => {
-//   const urlPattern = /^https?:\/\/.+\.(jpg|jpeg|png|webp|avif|gif|svg)$/;
-//   if (!urlPattern.test(imageUrl)) {
-//     return "Image URL must be a valid URL and end with an image extension";
-//   }
-//   return null;
-// };
-
-const checkCategoryExists = async (categoryName) => {
-  const existingCategory = await Category.findOne({ categoryName });
-  if (existingCategory) {
-    return "Category name must be unique";
-  }
-  return null;
-};
-
-app.post("/categories", async (req, res) => {
-  const { categoryName, description, imageUrl, language } = req.body;
-
-  //؟ Validate request body
-  const bodyError = validateRequestBody(categoryName, description, imageUrl);
-  if (bodyError) {
-    return res.status(400).json({ error: bodyError });
-  }
-
-  // // Validate image URL format
-  // const imageError = validateImageUrl(imageUrl);
-  // if (imageError) {
-  //   return res.status(400).json({ error: imageError });
-  // }
-
-  try {
-    // Check if category already exists
-    const categoryError = await checkCategoryExists(categoryName);
-    if (categoryError) {
-      return res.status(400).json({ error: categoryError });
-    }
-
-    // Create new category
-    const newCategory = new Category({
-      categoryName,
-      description,
-      imageUrl,
-    });
-    await newCategory.save();
-    res.status(201).json(newCategory);
-  } catch (error) {
-    // Handle validation errors and other errors
-    if (error.name === "ValidationError") {
-      res.status(400).json({ error: error.message });
-    } else {
-      res.status(500).json({ error: "Internal Server Error" });
-    }
-  }
-});
