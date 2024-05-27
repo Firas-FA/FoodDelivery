@@ -1,4 +1,3 @@
-import React from 'react'
 import { NavLink } from 'react-router-dom'
 import './LoginStyle.css'
 
@@ -8,10 +7,10 @@ const Login = () => {
     <>
       <div class='Container p-5'>
         <div class='row mx-0 pt-5 pb-5'>
-          <div class="col-6 pt-5">
-            <img src="https://img.freepik.com/free-photo/gourmet-italian-bolognese-pasta-with-fresh-parmesan-generated-by-ai_188544-9453.jpg?w=740&t=st=1716721493~exp=1716722093~hmac=f5080dd74c457aff9c7920ea0af1e74e49e5f8b1864109286c19445b1f5456ab" alt="" />
+          <div class="col-sm-12 col-md-6 pt-5">
+            <img class="img-fluid" src="https://img.freepik.com/free-photo/gourmet-italian-bolognese-pasta-with-fresh-parmesan-generated-by-ai_188544-9453.jpg?w=740&t=st=1716721493~exp=1716722093~hmac=f5080dd74c457aff9c7920ea0af1e74e49e5f8b1864109286c19445b1f5456ab" alt="" />
           </div>
-          <div class="col-6 pt-4">
+          <div class="col-sm-12 col-md-6 pt-4">
             <div className="container-form">
               <form class="form">
                 <p id="heading">Log<span style={{ color: "#FDCE77" }}>in</span></p>
