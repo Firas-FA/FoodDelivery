@@ -54,18 +54,63 @@ app.use("", userLoginRoute);
 app.use("", createCategoryRoute);
 //! Using Routes !\\
 
-// //? Add New FoodItem Route
-// app.post("/foodItems", async (req, res) => {
-//   const { categoryName } = req.body;
+// Add New FoodItem Route
+app.post("/foodItems", async (req, res) => {
+  try {
+    const {
+      categoryName,
+      foodItemName,
+      description,
+      price,
+      oldPrice,
+      imageUrl,
+      ingredients,
+      ratings,
+    } = req.body;
 
-//   const category = Category.findOne({ categoryName });
+    // Check if foodItemName is provided and is not null or empty
+    if (!foodItemName || !foodItemName.trim()) {
+      return res
+        .status(400)
+        .send({ error: "Food item name is required and cannot be empty" });
+    }
 
-//   try {
-//     await validateFields(req);
-//     const foodItem = new FoodItem(req.body);
-//     await foodItem.save();
-//     res.status(201).json({ foodItem });
-//   } catch (error) {
-//     res.status(400).json({ error: error.message });
-//   }
-// });
+    // Check if the category exists
+    const category = await Category.findOne({
+      categoryName: categoryName.trim(),
+    });
+    if (!category) {
+      return res.status(400).send({ error: "This Category does not exist" });
+    }
+
+    // Check if the Food Item exists
+    const existingFoodItem = await FoodItem.findOne({
+      foodItemName: foodItemName.trim(),
+    });
+    if (existingFoodItem) {
+      return res.status(400).send({ error: "Food item name already exists" });
+    }
+
+    // Create new food item
+    const foodItem = new FoodItem({
+      foodItemName,
+      description,
+      price,
+      oldPrice,
+      imageUrl,
+      ingredients,
+      ratings,
+      categoryName: categoryName.trim(),
+    });
+
+    await foodItem.save();
+    res.status(201).send(foodItem);
+  } catch (error) {
+    console.error("Error:", error);
+    if (error.code === 11000) {
+      res.status(400).send({ error: "Duplicate food item name" });
+    } else {
+      res.status(400).send({ error: error.message });
+    }
+  }
+});
