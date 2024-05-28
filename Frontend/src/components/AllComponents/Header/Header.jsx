@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Container, NavLink, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import "./HeaderStyle.css";
 import img from "../../../assets/Ellipse 44.png";
 import girl from "../../../assets/1.png"

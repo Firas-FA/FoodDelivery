@@ -28,8 +28,7 @@
   }
   .header{
     background: rgb(0, 0, 0);
-    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 58%,rgba(9, 2, 3, 1)75%,rgb(219, 101, 101) 175%
-  );
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 58%,rgba(9, 2, 3, 1)75%,rgb(219, 101, 101) 175%);
   }
   .x{
     width: 320px;
