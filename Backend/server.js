@@ -16,6 +16,7 @@ const app = express();
 //* Importing  Routes
 const userRegisterRoute = require("./Routes/UserRoutes/RegesterRoute");
 const userLoginRoute = require("./Routes/UserRoutes/LoginRoute");
+const createCategoryRoute = require("./Routes/Categories/CreateCategoryRoute");
 //* Importing  Routes *\\
 
 //? Middlewares
@@ -49,47 +50,9 @@ app.use("", userRegisterRoute);
 //? User Login Route
 app.use("", userLoginRoute);
 
+//? Create Category Route
+app.use("", createCategoryRoute);
 //! Using Routes !\\
-async function validateFields(req) {
-  const {
-    foodItemName,
-    description,
-    price,
-    oldPrice,
-    category: categoryName,
-    imageUrl,
-  } = req.body;
-
-  if (
-    !foodItemName &&
-    !description &&
-    !price &&
-    !oldPrice &&
-    !categoryName &&
-    !imageUrl
-  ) {
-    throw new Error("All fields are required ");
-  } else {
-    if (!foodItemName) {
-      throw new Error("The 'foodItemName' field is required.");
-    }
-    if (!description) {
-      throw new Error("The 'description' field is required.");
-    }
-    if (!price) {
-      throw new Error("The 'price' field is required.");
-    }
-    if (!oldPrice) {
-      throw new Error("The 'oldPrice' field is required.");
-    }
-    if (!categoryName) {
-      throw new Error("The 'category' field is required.");
-    }
-    if (!imageUrl) {
-      throw new Error("The 'imageUrl' field is required.");
-    }
-  }
-}
 
 // //? Add New FoodItem Route
 // app.post("/foodItems", async (req, res) => {
@@ -106,32 +69,3 @@ async function validateFields(req) {
 //     res.status(400).json({ error: error.message });
 //   }
 // });
-
-// Route to create a new category
-app.post("/categories", async (req, res) => {
-  const { categoryName, description, imageUrl } = req.body;
-
-  // Validate request body
-  if (!categoryName || !description || !imageUrl) {
-    return res.status(400).json({
-      error: "All fields are required: categoryName, description, imageUrl",
-    });
-  }
-
-  try {
-    // Create new categor
-    const newCategory = new Category({ categoryName, description, imageUrl });
-    await newCategory.save();
-    res.status(201).json(newCategory);
-  } catch (error) {
-    // Handle validation errors and other errors
-    if (error.name === "ValidationError") {
-      res.status(400).json({ error: error.message });
-    } else if (error.code === 11000) {
-      // Handle duplicate key error
-      res.status(400).json({ error: "Category name must be unique" });
-    } else {
-      res.status(500).json({ error: "Internal Server Error" });
-    }
-  }
-});
