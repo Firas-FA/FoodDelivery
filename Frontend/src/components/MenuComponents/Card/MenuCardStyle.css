@@ -1,0 +1,13 @@
+.aboutcard{
+    background: rgb(19,16,16);
+    background: linear-gradient(1300deg, rgba(7, 6, 6, 0.856) 60%, rgba(69,13,21,1) 80%, rgba(134,44,44,1) 110%);
+    position: relative;
+    padding: 20px;
+    min-height: 400px;
+}
+.cardimg{
+    position: relative;
+    /* left: 50%; */
+    /* transform: translateX(-50%); */
+    top: -80%;
+}

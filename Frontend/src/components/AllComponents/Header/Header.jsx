@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Container, NavLink, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import "./HeaderStyle.css";
 import img from "../../../assets/Ellipse 44.png";
 import girl from "../../../assets/1.png"
@@ -21,7 +21,7 @@ function Header() {
               <div className="d-flex align-items-center h-100">
                 <div>
                 <h3 className="hero-text">
-                  Feast Your Eyes on <span style={{color:'red'}}> Our Menu</span>. Where Every Bite Tells a Story of <span style={{color:'gold'}}>Quality</span> and <span style={{color:'gold'}}>Passion</span>
+                  Feast Your Eyes on <span style={{color:'#f65f5f'}}> Our Menu</span>. Where Every Bite Tells a Story of <span style={{color:'gold'}}>Quality</span> and <span style={{color:'gold'}}>Passion</span>
                 </h3>
                   <a href="https://youtu.be/DzSSUU37ynQ" target="_blank">
                     <button className="btn btn-warning fs-5 py-2 mt-5">
